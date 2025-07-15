@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Blog - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .content-section {
+        padding: 80px 0;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #667eea;
+    }
+
+    .btn-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 500;
+    }
+
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">Personal Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">Sobre mí</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <h1 class="hero-title">Bienvenido a mi Blog Personal</h1>
+    <p class="hero-subtitle">Comparto mis pensamientos, experiencias y conocimientos</p>
+    <a href="index.html" class="btn btn-light btn-lg btn-custom">Ver Artículos</a>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="content-section">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col-12">
+        <h2 class="display-4 mb-4">¿Qué encontrarás aquí?</h2>
+        <p class="lead">Un espacio donde comparto mis reflexiones y aprendizajes</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="feature-icon">📝</div>
+          <h4>Artículos Originales</h4>
+          <p>Contenido único y personal sobre diversos temas que me apasionan y experiencias que quiero compartir.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="feature-icon">💡</div>
+          <h4>Ideas y Reflexiones</h4>
+          <p>Pensamientos profundos y análisis sobre la vida, tecnología, y todo lo que me inspira día a día.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <div class="feature-icon">🚀</div>
+          <h4>Crecimiento Personal</h4>
+          <p>Comparto mi journey de aprendizaje continuo y las lecciones que voy descubriendo en el camino.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="content-section bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="display-5 mb-4">Sobre mí</h2>
+        <p class="lead">Soy un apasionado escritor y pensador que disfruta compartiendo ideas y experiencias a través de este blog personal.</p>
+        <p>Mi objetivo es crear contenido que inspire, eduque y conecte con personas que comparten intereses similares. Cada artículo es una oportunidad para explorar nuevas perspectivas y aprender juntos.</p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px;">
+          <span style="font-size: 4rem;">👨‍💻</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="content-section">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="display-5 mb-4">¿Quieres conectar?</h2>
+        <p class="lead mb-4">Me encanta recibir feedback y conectar con lectores</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="btn btn-outline-primary">Email</a>
+          <a href="#" class="btn btn-outline-primary">Twitter</a>
+          <a href="#" class="btn btn-outline-primary">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-4">
+  <div class="container text-center">
+    <p>&copy; 2024 Personal Blog. Hecho con ❤️ y mucho café.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -12,7 +12,9 @@ public class BlogController {
     private ArticleService articleService;
 
     public String index(Model model){
-
+        model.addAttribute("articles", articleService.getAllArticles());
         return "blog/index";
     }
+
+
 }

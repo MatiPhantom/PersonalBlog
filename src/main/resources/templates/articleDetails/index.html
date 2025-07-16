@@ -10,16 +10,18 @@
     <!-- Navbar -->
     <header th:replace="~{/common/header :: header}"></header>
 
-    <div class="route-indicator">/article/38</div>
-
     <div class="container">
       <div class="article-container">
-        <a href="blog-index.html" class="back-link">← Volver al blog</a>
+        <a th:href="@{/blog}" class="back-link">← Volver al blog</a>
 
-        <h1 class="article-title">My first article</h1>
-        <div class="article-date">August 7, 2024</div>
+        <h1 class="article-title" th:text="${article.title}">
+          My first article
+        </h1>
+        <div class="article-date" th:text="${article.publishedDate}">
+          August 7, 2024
+        </div>
 
-        <div class="article-content">
+        <div class="article-content" th:text="${article.content}">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

@@ -2,6 +2,8 @@ package com.personalblog.service;
 
 import com.personalblog.persistence.dao.ArticleDAO;
 import com.personalblog.persistence.model.Article;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 @Service("ArticleService")
 public class ArticleService {
 
+    @Autowired
     private ArticleDAO articleDAO;
 
     public void registerArticle (Article article){

@@ -1,125 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My first article - Personal Blog</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <link rel="stylesheet" th:href="@{/css/articleDetail/style.css}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header th:replace="~{/common/header :: header}"></header>
 
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
+    <div class="route-indicator">/article/38</div>
 
-        .article-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            border: 2px solid #333;
-            border-radius: 8px;
-            padding: 50px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .article-title {
-            font-size: 2.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .article-date {
-            color: #999;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-        }
-
-        .article-content {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #333;
-            text-align: justify;
-        }
-
-        .route-indicator {
-            position: absolute;
-            top: 80px;
-            left: 20px;
-            color: #666;
-            font-style: italic;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 16px;
-            border: 1px solid #007bff;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .back-link:hover {
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="home.html">Personal Blog</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="blog-index.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html#about">Sobre mí</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html#contact">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="route-indicator">/article/38</div>
-
-<div class="container">
-    <div class="article-container">
+      <div class="article-container">
         <a href="blog-index.html" class="back-link">← Volver al blog</a>
 
         <h1 class="article-title">My first article</h1>
         <div class="article-date">August 7, 2024</div>
 
         <div class="article-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
 
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit.
+          </p>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <footer th:replace="~{/common/footer :: footer}"></footer>
+  </body>
 </html>

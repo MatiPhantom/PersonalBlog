@@ -1,0 +1,68 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.article-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.article-date {
+  color: #999;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.article-content {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+}
+
+.route-indicator {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  color: #666;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.back-link:hover {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+}

@@ -3,11 +3,12 @@ package com.personalblog.persistence.dao;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import com.personalblog.persistence.model.Article;
+import com.personalblog.persistence.storage.JsonStorage;
 
 @Repository
 public class ArticleDAO {
 
-    private List<Article> articles;
+    private final List<Article> articles= JsonStorage.load();
 
     public List<Article> findAll (){
         return articles;
@@ -20,21 +21,24 @@ public class ArticleDAO {
                        .orElse(null);
     }
 
-    public void save(Article article) {
+    public void setArticle(Article article) {
         articles.add(article);
+        JsonStorage.save(articles);
     }
 
     public void deleteById(int id) {
         articles.removeIf(article -> article.getId() == id);
+        JsonStorage.save(articles);
     }
 
     public void update(Article article) {
-        for (int i = 0; i < articles.size(); i++) {
+        loop: for (int i = 0; i < articles.size(); i++) {
             if (articles.get(i).getId() == article.getId()) {
                 articles.set(i, article);
-                return;
+                break loop;
             }
         }
+        JsonStorage.save(articles);
     }
 
 

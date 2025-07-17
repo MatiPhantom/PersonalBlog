@@ -15,7 +15,7 @@ public class ArticleService {
     private ArticleDAO articleDAO;
 
     public void registerArticle (Article article){
-        articleDAO.save(article);
+        articleDAO.setArticle(article);
     }
 
     public List<Article> getAllArticles() {

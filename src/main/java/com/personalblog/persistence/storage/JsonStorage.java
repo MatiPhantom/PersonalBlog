@@ -15,23 +15,12 @@ import com.personalblog.persistence.model.Article;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Component
 @Slf4j
 public class JsonStorage {
 
     private static final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
-    private static List<Article> articles=load();
-
-    public static List<Article> getArticles() {
-        return articles;
-    }
-
-    public static void setArticle(Article article) {
-        articles.add(article);
-    }
-
-    public static void save(){
+    public static void save(List<Article> articles) {
         try(FileWriter writer = new FileWriter("articles.json")) {
             mapper.writeValue(writer, articles);
             writer.flush();
@@ -56,8 +45,6 @@ public class JsonStorage {
         }else{
             return new ArrayList<>();
         }
-
-        
     }
 
 }

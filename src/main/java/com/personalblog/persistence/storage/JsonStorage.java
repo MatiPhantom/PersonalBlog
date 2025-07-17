@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.personalblog.persistence.model.Article;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JsonStorage {
 
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
-    private static List<Article> articles=new ArrayList<>();
+    private static List<Article> articles=load();
 
     public static List<Article> getArticles() {
         return articles;
@@ -39,7 +40,6 @@ public class JsonStorage {
         }catch(Exception e){
             log.error("Error saving articles to JSON file", e);
         }
-
     }
 
     public static List<Article> load(){

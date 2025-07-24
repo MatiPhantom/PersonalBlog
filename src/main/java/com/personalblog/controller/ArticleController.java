@@ -6,13 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.personalblog.service.ArticleService;
 
-
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/blog/article")
 public class ArticleController {
 
     @Autowired
@@ -23,5 +21,5 @@ public class ArticleController {
         model.addAttribute("article", articleService.getArticleById(id));
         return "articleDetails/index";
     }
-    
+
 }

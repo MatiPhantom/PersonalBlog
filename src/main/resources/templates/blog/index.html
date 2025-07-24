@@ -9,74 +9,38 @@
   <body>
     <!-- Navbar -->
     <header th:replace="~{/common/header :: header}"></header>
+    <main>
+      <div class="container">
+        <div class="blog-container">
+          <h1 class="blog-title">Todos los Artículos</h1>
 
-    <div class="container">
-      <div class="blog-container">
-        <h1 class="blog-title">Todos los Artículos</h1>
-
-        <p class="blog-description" th:if="${articles==null}" th:align="center">
-          Aquí encontrarás todos los artículos publicados en el blog.
-        </p>
-
-        <div class="articles-list" th:unless="${articles==null}">
-          <a
-            th:each="article : ${articles}"
-            th:href="@{'/blog/article/'+${article.id}}"
-            class="article-item"
+          <p
+            class="blog-description"
+            th:if="${article == null or #lists.isEmpty(articles)}"
+            th:align="center"
           >
-            <h3 class="article-title" th:text="${article.title}"></h3>
-            <span class="article-date" th:text="${article.publishedDate}"
-              >August 7, 2024</span
+            Aquí encontrarás todos los artículos publicados en el blog.
+          </p>
+
+          <div
+            class="articles-list"
+            th:if="${article != null or not #lists.isEmpty(articles)}"
+          >
+            <a
+              th:each="article : ${articles}"
+              th:href="@{'/blog/article/'+${article.id}}"
+              class="article-item"
             >
-          </a>
-
-          <a href="blog-article.html" class="article-item">
-            <h3 class="article-title">My first article</h3>
-            <span class="article-date">August 7, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Second article</h3>
-            <span class="article-date">August 4, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Third article</h3>
-            <span class="article-date">August 1, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Fourth article</h3>
-            <span class="article-date">July 30, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Fifth article</h3>
-            <span class="article-date">July 21, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Sixth article</h3>
-            <span class="article-date">July 15, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Seventh article</h3>
-            <span class="article-date">July 8, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Eighth article</h3>
-            <span class="article-date">July 4, 2024</span>
-          </a>
-
-          <a href="#" class="article-item">
-            <h3 class="article-title">Nineth Article</h3>
-            <span class="article-date">July 1, 2024</span>
-          </a>
+              <h3 class="article-title" th:text="${article.title}"></h3>
+              <span
+                class="article-date"
+                th:text="${article.publishedDate}"
+              ></span>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer th:replace="~{/common/footer :: footer}"></footer>

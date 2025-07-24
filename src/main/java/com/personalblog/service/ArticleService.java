@@ -14,11 +14,12 @@ public class ArticleService {
     @Autowired
     private ArticleDAO articleDAO;
 
-    public void registerArticle (Article article){
+    public void registerArticle(Article article) {
         articleDAO.setArticle(article);
     }
 
     public List<Article> getAllArticles() {
+
         return articleDAO.findAll();
     }
 
@@ -33,8 +34,5 @@ public class ArticleService {
     public void deleteArticleById(int id) {
         articleDAO.deleteById(id);
     }
-
-
-
 
 }

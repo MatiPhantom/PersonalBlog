@@ -13,20 +13,25 @@ import jakarta.annotation.PostConstruct;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class Article {
 
-    public static int COUNT = 0;
+    public static int COUNT = 1;
 
-    private int id = COUNT;
+    private int id;
     private String title;
     private String content;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate publishedDate;
 
-    @PostConstruct
-    public void init() {
+    public Article(String title, String content, LocalDate publishedDate) {
+        this.title = title;
+        this.content = content;
+        this.publishedDate = publishedDate;
+        this.id = COUNT++;
+    }
+
+    public Article() {
         this.id = COUNT++;
     }
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión - Personal Blog</title>
+    <link rel="stylesheet" th:href="@{/css/login/style.css}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header th:replace="~{/common/header :: header}"></header>
+
+    <!-- Login Section -->
+    <main class="login-container">
+      <div class="container" align="center">
+        <div class="login-card">
+          <div class="row g-0">
+            <!-- Left Side - Welcome -->
+            <div class="col-lg-5 d-none d-lg-block">
+              <div class="login-left">
+                <div class="welcome-icon">👋</div>
+                <h2 class="login-title">¡Bienvenido de vuelta!</h2>
+                <p class="login-subtitle">
+                  Nos alegra verte otra vez. Inicia sesión para acceder a tu
+                  cuenta y continuar explorando contenido exclusivo.
+                </p>
+                <div class="mt-4">
+                  <p>¿No tienes cuenta?</p>
+                  <a th:href="@{/register}" class="btn btn-outline-light"
+                    >Crear cuenta</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side - Login Form -->
+            <div class="col-lg-7">
+              <div class="login-right">
+                <h2 class="form-title">Iniciar Sesión</h2>
+
+                <form
+                  th:action="@{/login}"
+                  method="post"
+                  th:object="${loginRequest}"
+                >
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      th:field="*{email}"
+                      class="form-control"
+                      id="email"
+                      placeholder="nombre@ejemplo.com"
+                      required
+                    />
+                    <label for="email">Correo electrónico</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="password"
+                      th:field="*{password}"
+                      class="form-control"
+                      id="password"
+                      placeholder="Contraseña"
+                      required
+                    />
+                    <label for="password">Contraseña</label>
+                  </div>
+
+                  <div
+                    class="alert alert-danger mt-3"
+                    role="alert"
+                    th:if="${errorMessage}"
+                  >
+                    <p th:text="${errorMessage}"></p>
+                  </div>
+
+                  <button type="submit" class="btn btn-login">
+                    Iniciar Sesión
+                  </button>
+                </form>
+
+                <div class="signup-link d-lg-none">
+                  <p>
+                    ¿No tienes cuenta?
+                    <a th:href="@{/register}">Crear una cuenta</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer th:replace="~{common/footer :: footer}"></footer>
+  </body>
+</html>

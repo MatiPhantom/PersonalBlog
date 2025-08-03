@@ -1,6 +1,7 @@
 package com.personalblog.service;
 
 import com.personalblog.persistence.dao.ArticleDAO;
+import com.personalblog.persistence.dao.DAO;
 import com.personalblog.persistence.model.Article;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,10 @@ import java.util.List;
 public class ArticleService {
 
     @Autowired
-    private ArticleDAO articleDAO;
+    private DAO<Article> articleDAO;
 
     public void registerArticle(Article article) {
-        articleDAO.setArticle(article);
+        articleDAO.save(article);
     }
 
     public List<Article> getAllArticles() {

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Cuenta - Personal Blog</title>
+    <link rel="stylesheet" th:href="@{/css/register/style.css}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header th:replace="~{common/header :: header}"></header>
+
+    <!-- Register Section -->
+    <main>
+      <div class="register-container" align="center">
+        <div class="container">
+          <div class="register-card">
+            <div class="row g-0">
+              <!-- Left Side - Welcome -->
+              <div class="col-lg-5 d-none d-lg-block">
+                <div class="register-left">
+                  <div class="welcome-icon">🚀</div>
+                  <h2 class="register-title">¡Únete a nosotros!</h2>
+                  <p class="register-subtitle">
+                    Crea tu cuenta y forma parte de nuestra comunidad. Accede a
+                    contenido exclusivo y conecta con otros lectores.
+                  </p>
+                  <div class="mt-4">
+                    <p>¿Ya tienes cuenta?</p>
+                    <a th:href="@{/login}" class="btn btn-outline-light"
+                      >Iniciar sesión</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side - Register Form -->
+              <div class="col-lg-7">
+                <div class="register-right">
+                  <h2 class="form-title">Crear Cuenta</h2>
+
+                  <form
+                    th:action="@{/register}"
+                    method="post"
+                    th:object="${user}"
+                  >
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="firstName"
+                            th:field="*{name}"
+                            placeholder="Nombre"
+                            required
+                          />
+                          <label for="firstName">Nombre</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            th:field="*{lastName}"
+                            placeholder="Apellido"
+                            required
+                          />
+                          <label for="lastName">Apellido</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-floating">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        th:field="*{email}"
+                        placeholder="nombre@ejemplo.com"
+                        required
+                      />
+                      <label for="email">Correo electrónico</label>
+                    </div>
+
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        th:field="*{password}"
+                        placeholder="Contraseña"
+                        required
+                      />
+                      <label for="password">Contraseña</label>
+                    </div>
+
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        placeholder="Confirmar contraseña"
+                        required
+                      />
+                      <label for="confirmPassword">Confirmar contraseña</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-register">
+                      Crear Cuenta
+                    </button>
+                  </form>
+
+                  <div class="login-link d-lg-none">
+                    <p>
+                      ¿Ya tienes cuenta?
+                      <a th:href="@{/login}">Iniciar sesión</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer th:replace="~{/common/footer :: footer}"></footer>
+  </body>
+</html>

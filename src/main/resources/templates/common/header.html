@@ -14,7 +14,7 @@
         rel="stylesheet"
       />
       <div class="container">
-        <a class="navbar-brand" href="home.html">Personal Blog</a>
+        <a class="navbar-brand" th:href="@{/}">Personal Blog</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -26,16 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="home.html">Home</a>
+              <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="blog-index.html">Blog</a>
+              <a class="nav-link active" th:href="@{/blog}">Blog</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="home.html#about">Sobre mí</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="home.html#contact">Contacto</a>
+            <li class="nav-item" th:if="${session.userLogedId != null}">
+              <a class="nav-link active" th:href="@{/logout}">Logout</a>
             </li>
           </ul>
         </div>

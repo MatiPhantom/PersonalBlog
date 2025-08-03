@@ -1,14 +1,16 @@
 package com.personalblog.persistence.dao;
 
-import org.springframework.stereotype.Repository;
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
 import com.personalblog.persistence.model.Article;
-import com.personalblog.persistence.storage.UtilStorage;
+import com.personalblog.persistence.storage.UtilArticleStorage;
 
 @Repository
-public class ArticleDAO {
+public class ArticleDAO implements DAO<Article> {
 
-    private final List<Article> articles = UtilStorage.load();
+    private final List<Article> articles = UtilArticleStorage.load();
 
     public List<Article> findAll() {
         return articles;
@@ -21,14 +23,14 @@ public class ArticleDAO {
                 .orElse(null);
     }
 
-    public void setArticle(Article article) {
+    public void save(Article article) {
         articles.add(article);
-        UtilStorage.save(articles);
+        UtilArticleStorage.save(articles);
     }
 
     public void deleteById(int id) {
         articles.removeIf(article -> article.getId() == id);
-        UtilStorage.save(articles);
+        UtilArticleStorage.save(articles);
     }
 
     public void update(Article article) {
@@ -38,7 +40,7 @@ public class ArticleDAO {
                 break loop;
             }
         }
-        UtilStorage.save(articles);
+        UtilArticleStorage.save(articles);
     }
 
 }

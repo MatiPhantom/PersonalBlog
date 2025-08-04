@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Artículo - Personal Blog</title>
+    <link rel="stylesheet" th:href="@{/css/article/editArticle.css}" />
+  </head>
+  <body>
+    <header th:replace="~{common/header :: header}"></header>
+
+    <!-- Form Container -->
+    <div class="container">
+      <div class="form-container">
+        <!-- Header -->
+        <div class="form-header">
+          <h1>✏️ Editar Artículo</h1>
+          <p>Actualiza y mejora tu contenido</p>
+          <div class="article-info">
+            <strong>Artículo:</strong> My first article<br />
+            <strong>Última edición:</strong> 7 de agosto, 2024<br />
+            <strong>Estado:</strong>
+            <span class="badge bg-success">Publicado</span>
+          </div>
+        </div>
+
+        <!-- Form Body -->
+        <div class="form-body">
+          <form
+            th:action="@{'/blog/article/edit/'+ ${article.id}}"
+            th:object="${article}"
+            method="post"
+          >
+            <!-- Título -->
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                th:field="*{title}"
+                placeholder="Título del artículo"
+                value="My first article"
+                required
+              />
+              <label for="title">Título del artículo</label>
+            </div>
+            <!-- Contenido -->
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                id="content"
+                th:field="*{content}"
+                placeholder="Escribe tu artículo aquí..."
+                required
+              >
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea
+              >
+              <label for="content">Contenido del artículo</label>
+            </div>
+
+            <!-- Fecha de publicación -->
+            <div class="form-floating">
+              <input
+                type="date"
+                class="form-control"
+                id="publish-date"
+                th:field="*{publishedDate}"
+                value="2024-08-07T10:00"
+              />
+              <label for="publish-date">Fecha de publicación</label>
+            </div>
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                name="action"
+                value="update"
+              >
+                💾 Actualizar artículo
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                name="action"
+                value="delete"
+              >
+                🗑️ Eliminar artículo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer th:replace="~{/common/footer:: footer}"></footer>
+  </body>
+</html>

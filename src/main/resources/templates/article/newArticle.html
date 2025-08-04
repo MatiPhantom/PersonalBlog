@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Artículo - Personal Blog</title>
+    <link rel="stylesheet" th:href="@{/css/article/newArticleStyle.css}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header th:replace="~{/common/header :: header}"></header>
+
+    <!-- Form Container -->
+    <div class="container">
+      <div class="form-container">
+        <!-- Header -->
+        <div class="form-header">
+          <h1>✍️ Crear Nuevo Artículo</h1>
+          <p>Comparte tus ideas y pensamientos con el mundo</p>
+        </div>
+
+        <!-- Form Body -->
+        <div class="form-body">
+          <form
+            th:object="${article}"
+            th:action="@{/blog/article/new}"
+            method="post"
+          >
+            <!-- Título -->
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                th:field="*{title}"
+                placeholder="Título del artículo"
+                required
+              />
+              <label for="title">Título del artículo</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                class="form-control"
+                id="publish-date"
+                th:field="*{publishedDate}"
+                required
+              />
+              <label for="publish-date">Fecha de publicación</label>
+            </div>
+
+            <!-- Contenido -->
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                id="content"
+                placeholder="Escribe tu artículo aquí..."
+                th:field="*{content}"
+                required
+              ></textarea>
+              <label for="content">Contenido del artículo</label>
+            </div>
+
+            <!-- Fecha de publicación -->
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                🚀 Publicar artículo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer th:replace="~{/common/footer :: footer}"></footer>
+  </body>
+</html>

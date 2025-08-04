@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.personalblog.persistence.model.Article;
 import com.personalblog.service.ArticleService;
 import com.personalblog.service.SessionService;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/blog/article")

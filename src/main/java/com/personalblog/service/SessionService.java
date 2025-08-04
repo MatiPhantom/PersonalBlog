@@ -46,6 +46,7 @@ public class SessionService {
 
     public void clearSession() {
         session.invalidate();
+        log.info("Session cleared");
     }
 
 }

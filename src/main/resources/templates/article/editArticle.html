@@ -27,7 +27,7 @@
         <!-- Form Body -->
         <div class="form-body">
           <form
-            th:action="@{'/blog/article/edit/'+ ${article.id}}"
+            th:action="@{/blog/article/edit/}"
             th:object="${article}"
             method="post"
           >

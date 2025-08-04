@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,9 +52,16 @@ public class ArticleController {
     }
 
     @PostMapping("/edit/")
-    public String updateArticle(Article article) {
-        articleService.updateArticle(article);
-        return "redirect:/blog";
+    public String updateArticle(Article article, @RequestParam("action") String action) {
+        switch (action) {
+            case "update":
+                articleService.updateArticle(article);
+                return "redirect:/blog";
+
+            default:
+                return "redirect:/blog/article/delete/" + article.getId();
+        }
+
     }
 
     @GetMapping("/delete/{id}")

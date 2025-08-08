@@ -17,8 +17,12 @@
           <h1>✏️ Editar Artículo</h1>
           <p>Actualiza y mejora tu contenido</p>
           <div class="article-info">
-            <strong>Artículo:</strong> My first article<br />
-            <strong>Última edición:</strong> 7 de agosto, 2024<br />
+            <strong>Artículo:</strong>
+            <p th:text="${article.title}"></p>
+            <br />
+            <strong>Última edición:</strong>
+            <p th:text="${article.publishedDate}"></p>
+            <br />
             <strong>Estado:</strong>
             <span class="badge bg-success">Publicado</span>
           </div>
@@ -67,6 +71,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 id="publish-date"
                 th:field="*{publishedDate}"
                 value="2024-08-07T10:00"
+                required
               />
               <label for="publish-date">Fecha de publicación</label>
             </div>
